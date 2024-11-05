@@ -1,5 +1,5 @@
 //
-// Copyright 2021 Cristian Maglie. All rights reserved.
+// Copyright 2024 Cristian Maglie. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 //
@@ -105,7 +105,7 @@ type InitializeResultServerInfo struct {
 	Version string `json:"version,omitempty"`
 }
 
-// If the protocol version provided by the client can't be handled by the
+// InitializeErrorUnknownProtocolVersion If the protocol version provided by the client can't be handled by the
 // server.
 //
 // @deprecated This initialize error got replaced by client capabilities.
@@ -148,7 +148,7 @@ type ConfigurationParams struct {
 
 type ConfigurationItem struct {
 	// The scope to get the configuration section for.
-	ScopeUri DocumentURI `json:"scopeUri,omitempty"`
+	ScopeURI DocumentURI `json:"scopeUri,omitempty"`
 
 	// The configuration section asked for.
 	Section string `json:"section,omitempty"`

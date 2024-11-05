@@ -4,10 +4,5 @@
 // license that can be found in the LICENSE file.
 //
 
-package lsp
-
-type Unimplemented struct{}
-
-func (*Unimplemented) UnmarshalJSON([]byte) error {
-	panic("Unimplemented!")
-}
+// Package jsonrpc is an implementation of a Language Server Protocol JSON-RPC protocol.
+package jsonrpc

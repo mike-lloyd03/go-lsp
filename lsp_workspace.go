@@ -1,5 +1,5 @@
 //
-// Copyright 2021 Cristian Maglie. All rights reserved.
+// Copyright 2024 Cristian Maglie. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 //
@@ -13,7 +13,7 @@ type DidChangeWatchedFilesParams struct {
 	Changes []FileEvent `json:"changes,required"`
 }
 
-// An event describing a file change.
+// FileEvent An event describing a file change.
 type FileEvent struct {
 	// The file's URI.
 	URI DocumentURI `json:"uri,required"`
@@ -63,7 +63,7 @@ type DidChangeWorkspaceFoldersParams struct {
 	Event WorkspaceFoldersChangeEvent `json:"event,required"`
 }
 
-// The workspace folder change event.
+// WorkspaceFoldersChangeEvent The workspace folder change event.
 type WorkspaceFoldersChangeEvent struct {
 	// The array of added workspace folders
 	Added []WorkspaceFolder `json:"added,required"`

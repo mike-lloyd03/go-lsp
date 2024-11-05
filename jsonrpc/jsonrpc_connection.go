@@ -1,5 +1,5 @@
 //
-// Copyright 2021 Cristian Maglie. All rights reserved.
+// Copyright 2024 Cristian Maglie. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 //
@@ -236,14 +236,14 @@ func (c *Connection) Close() {
 
 func (c *Connection) SendRequest(ctx context.Context, method string, params json.RawMessage) (json.RawMessage, *ResponseError, error) {
 	id := fmt.Sprintf("%d", atomic.AddUint64(&c.lastOutRequestsIndex, 1))
-	encodedId, err := json.Marshal(id)
+	encodedID, err := json.Marshal(id)
 	if err != nil {
 		// should never happen...
 		panic("internal error creating RequestMessage")
 	}
 	req := RequestMessage{
 		JSONRPC: "2.0",
-		ID:      encodedId,
+		ID:      encodedID,
 		Method:  method,
 		Params:  params,
 	}
@@ -277,7 +277,7 @@ func (c *Connection) SendRequest(ctx context.Context, method string, params json
 		_, active := c.activeOutRequests[id]
 		c.activeOutRequestsMutex.Unlock()
 		if active {
-			if notif, err := json.Marshal(CancelParams{ID: encodedId}); err != nil {
+			if notif, err := json.Marshal(CancelParams{ID: encodedID}); err != nil {
 				// should never happen
 				panic("internal error: failed json encoding")
 			} else {

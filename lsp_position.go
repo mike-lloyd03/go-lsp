@@ -1,5 +1,5 @@
 //
-// Copyright 2021 Cristian Maglie. All rights reserved.
+// Copyright 2024 Cristian Maglie. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 //
@@ -69,7 +69,7 @@ type LocationLink struct {
 	OriginSelectionRange *Range `json:"originSelectionRange,omitempty"`
 
 	// The target resource identifier of this link.
-	TargetUri DocumentURI `json:"targetUri,required"`
+	TargetURI DocumentURI `json:"targetUri,required"`
 
 	// The full target range of this link. If the target for example is a symbol
 	// then target range is the range enclosing this symbol not including
@@ -83,7 +83,7 @@ type LocationLink struct {
 	TargetSelectionRange Range `json:"targetSelectionRange,required"`
 }
 
-// A document highlight is a range inside a text document which deserves
+// DocumentHighlight A document highlight is a range inside a text document which deserves
 // special attention. Usually a document highlight is visualized by changing
 // the background color of its range.
 type DocumentHighlight struct {
@@ -94,14 +94,14 @@ type DocumentHighlight struct {
 	Kind DocumentHighlightKind `json:"kind,omitempty"`
 }
 
-// A document highlight kind.
+// DocumentHighlightKind A document highlight kind.
 type DocumentHighlightKind int
 
-// A textual occurrence.
+// DocumentHighlightKindText A textual occurrence.
 const DocumentHighlightKindText DocumentHighlightKind = 1
 
-// Read-access of a symbol, like reading a variable.
+// DocumentHighlightKindRead Read-access of a symbol, like reading a variable.
 const DocumentHighlightKindRead DocumentHighlightKind = 2
 
-// Write-access of a symbol, like writing to a variable.
+// DocumentHighlightKindWrite Write-access of a symbol, like writing to a variable.
 const DocumentHighlightKindWrite DocumentHighlightKind = 3
